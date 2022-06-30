@@ -1,6 +1,6 @@
-# PAM Integration Template
+# IntegrationSandbox
 
-This project is meant to be a template to quickly build a basic integration product build. Currently in dev, a work in progress,
+Sandbox for testing workflow and scripting
 
 #### Integration status: Prototype - Demonstration quality. Not for use in customer environments.
 
@@ -17,13 +17,13 @@ Keyfactor supports the retrieval of credentials from 3rd party Priviledged Acces
 This release was tested against Hashicorp Vault version 1.9.4.
 
 ### Initial Configuration of PAM Provider
-In order to allow Keyfactor to use the new PAM Integration Template, the definition needs to be added to the application database.
+In order to allow Keyfactor to use the new IntegrationSandbox, the definition needs to be added to the application database.
 This is done by running the provided [add_PAMProvider.sql](./add_PAMProvider.sql) script on the Keyfactor application database, which only needs to be done one time.
 
 If you have a hosted environment or need assistance completing this step, please contact Keyfactor Support.
 
 ### Configuring Parameters
-The following are the parameter names and a description of the values needed to configure the PAM Integration Template.
+The following are the parameter names and a description of the values needed to configure the IntegrationSandbox.
 
 | Initialization parameter | Display Name | Description | Instance parameter | Display Name | Description |
 | :---: | :---: | --- | :---: | :---: | --- |
@@ -41,7 +41,7 @@ After adding a secret object to `kv` with a key and value, you can use the objec
 ##### Installation
 In order to setup a new PAM Provider in the Keyfactor Platform for the first time, you will need to run [the SQL Installation Script](./add_PAMProvider.sql) against your Keyfactor application database.
 
-After the installation is run, the DLLs need to be installed to the correct location for the PAM Provider to function. From the release, the complete contents should be copied to the following folder locations in the Keyfactor installation. Once the DLL has been copied to these folders, edit the corresponding config file. You will need to add a new Unity entry as follows under `<container>`, next to other `<register>` tags.
+After the installation is run, the DLLs need to be installed to the correct location for the PAM Provider to function. From the release, the IntegrationSandbox.dll should be copied to the following folder locations in the Keyfactor installation. Once the DLL has been copied to these folders, edit the corresponding config file. You will need to add a new Unity entry as follows under `<container>`, next to other `<register>` tags.
 
 When enabling a PAM provider for Orchestrators only, the first line for `WebAgentServices` is the only installation needed.
 
