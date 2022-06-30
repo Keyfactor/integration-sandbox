@@ -1,6 +1,6 @@
 # IntegrationSandbox
 
-This project is meant to be a template to quickly build a basic integration product build. Currently in dev, a work in progress,
+Sandbox for testing workflow and scripting
 
 #### Integration status: Prototype - Demonstration quality. Not for use in customer environments.
 

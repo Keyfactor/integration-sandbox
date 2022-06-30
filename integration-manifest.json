@@ -3,6 +3,6 @@
   "integration_type": "pam",
   "name": "IntegrationSandbox",
   "status": "prototype",
-  "description": "This project is meant to be a template to quickly build a basic integration product build. Currently in dev, a work in progress,",
+  "description": "Sandbox for testing workflow and scripting",
   "pamRegDLL": "IntegrationSandbox.dll"
 }
