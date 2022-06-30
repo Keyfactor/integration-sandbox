@@ -1,0 +1,29 @@
+{
+  "$schema": "https://keyfactor.github.io/integration-manifest-schema.json",
+  "integration_type": "orchestrator",
+  "name": "Integration Template",
+  "status": "prototype",
+  "description": "This project is meant to be a template to quickly build a basic integration product build. Currently in dev, a work in progress,",
+  "about": {
+    "orchestrator": {
+      "win": {
+        "supportsCreateStore": true,
+        "supportsDiscovery": true,
+        "supportsManagementAdd": false,
+        "supportsManagementRemove": false,
+        "supportsReenrollment": true,
+        "supportsInventory": true,
+        "platformSupport": "Unused"
+      },
+      "linux": {
+        "supportsCreateStore": true,
+        "supportsDiscovery": false,
+        "supportsManagementAdd": false,
+        "supportsManagementRemove": false,
+        "supportsReenrollment": true,
+        "supportsInventory": true,
+        "platformSupport": "Unused"
+      }
+    }
+  }
+}

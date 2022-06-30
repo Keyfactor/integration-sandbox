@@ -1,0 +1,64 @@
+yml: "Keyfactor Starter Workflow"
+dispatch: [workflow_dispatch, push, pull_request]
+inputs: 
+calls: 
+	Keyfactor/actions/.github/workflows/github-release.yml@main
+		outputs: release_version, release_url
+		steps:
+			get release values:
+				set repoName: last value after splitting on '/'
+					env.REPO_NAME
+				set relVersion: last value after splitting on '-' of target pr branch #e.g. release-1.0.0, relVersion = 1.0.0
+					env.RELEASE_VERSION
+				set isPreRelease: true if target pr branch starts with 'release-' and the event is an opened or synchronized pr
+					env.IS_PRE_RELEASE
+
+			existing-version (Check for existing version tags)
+				set env.GITHUB_TOKEN from secrets
+				set VERSION_NUMBER from env.RELEASE_VERSION from previous step
+				set tagsList: using git.listMatchingRefs (prop label 'tags' of current repo/owner context)
+(?????)	set env.VERSION_NUMBER from process.env (?????) - I think this is done so that it can be used in a variable later
+				set tags (array): from tagsList, reversed
+				set env.MANUAL_VERSION: if no tags exist or latest tag does not start with env.VERSION_NUMBER
+
+			merged-pull-request (checks for merged pull request)
+				if: event=push
+					set pulls (array) from pulls.list where state=closed
+# This block needs work
+#  // get the state of the latest pull request for this repo
+#  const state = pulls.data[0].state;
+#  const mergeSHA = pulls.data[0].merge_commit_sha;
+#  const IS_RELEASE = (state == 'closed') && (mergeSHA == context.sha);
+					set state: state of latest pulls data (I think this will always be closed based on previous pull definition)
+					set mergeSHA: merge_commit_sha of latest pulls data
+					set IS_RELEASE: mergeSHA is the same as the current run sha
+					export IS_RELEASE variable into env.IS_RELEASE
+
+			create_release
+				calls: keyfactor/action-create-release@b57fea317a67e7b20203904e85b9f78500b1a489
+					(This is part of the support-pre-version branch, sha b57fea3)
+					if: ID_PRE_RELEASE OR IS_RELEASE = True/true
+						pass a whole bunch of variables to action-create-release/disk/index.js
+							release_name
+							body
+							draft: false
+							prerelease: 
+							prerelease_suggix: rc
+							tag_name:
+							auto_increment_type:
+							tag_schema: semantic
+							commitish:
+
+keyfactor/action-create-release@b57fea317a67e7b20203904e85b9f78500b1a489
+
+	
+
+
+
+
+
+
+	Keyfactor/actions/.github/workflows/dotnet-build-and-release.yml@main
+		inputs:
+		outputs
+
