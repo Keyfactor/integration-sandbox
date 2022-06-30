@@ -13,8 +13,9 @@ Keyfactor supports the retrieval of credentials from 3rd party Priviledged Acces
 
 
 
-#### Compatibility
-This release was tested against Hashicorp Vault version 1.9.4.
+#### What is this repo all about?
+
+This is a public-facing repo with no real useable code. It is a target for testing build/workflow/action/process scripting
 
 ### Initial Configuration of PAM Provider
 In order to allow Keyfactor to use the new IntegrationSandbox, the definition needs to be added to the application database.
