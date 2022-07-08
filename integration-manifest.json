@@ -5,5 +5,5 @@
   "status": "prototype",
   "description": "Sandbox for testing workflow and scripting",
   "pamRegDLL": "IntegrationSandbox.dll",
-  "support_level": "kf-community"
+  "support_level": "community"
 }
