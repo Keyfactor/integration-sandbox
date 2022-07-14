@@ -9,6 +9,9 @@ Sandbox for testing workflow and scripting
 Keyfactor supports the retrieval of credentials from 3rd party Priviledged Access Management (PAM) solutions. Secret values can normally be stored, encrypted at rest, in the Keyfactor Platform database. A PAM Provider can allow these secrets to be stored, managed, and rotated in an external platform. This integration is usually configured on the Keyfactor Platform itself, where the platform can request the credential values when needed. In certain scenarios, a PAM Provider can instead be run on a remote location in conjunction with a Keyfactor Orchestrator to allow credential requests to originate from a location other than the Keyfactor Platform.
 
 ---
+
+## Support for IntegrationSandbox
+
 IntegrationSandbox is open source and community supported, meaning that there is **no SLA** applicable for these tools.
 
 To report a problem or suggest a new feature, use the **[Issues](../../issues)** tab. If you want to contribute actual bug fixes or proposed enhancements, use the **[Pull requests](../../pulls)** tab.
@@ -75,7 +78,7 @@ After it is set up, you can now use your PAM Provider when configuring certifica
 
 ---
 
-
+Added text 
 ### License
 [Apache](https://apache.org/licenses/LICENSE-2.0)
 
