@@ -8,6 +8,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{44964AA7-3E6C-4710-B590-479F9ABD320A}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		integration-manifest.json = integration-manifest.json
+		.github\workflows\keyfactor-starter-workflow.yml = .github\workflows\keyfactor-starter-workflow.yml
 		README.md = README.md
 	EndProjectSection
 EndProject

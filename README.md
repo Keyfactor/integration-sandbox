@@ -10,6 +10,12 @@ Keyfactor supports the retrieval of credentials from 3rd party Priviledged Acces
 
 ---
 
+## Support for IntegrationSandbox
+
+IntegrationSandbox is open source and community supported, meaning that there is **no SLA** applicable for these tools.
+
+To report a problem or suggest a new feature, use the **[Issues](../../issues)** tab. If you want to contribute actual bug fixes or proposed enhancements, use the **[Pull requests](../../pulls)** tab.
+___
 
 
 
@@ -73,7 +79,7 @@ After it is set up, you can now use your PAM Provider when configuring certifica
 
 ---
 
-
+Added text 
 ### License
 [Apache](https://apache.org/licenses/LICENSE-2.0)
 
