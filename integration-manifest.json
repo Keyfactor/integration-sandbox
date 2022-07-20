@@ -1,8 +1,22 @@
 {
   "$schema": "https://keyfactor.github.io/integration-manifest-schema.json",
   "integration_type": "pam",
-  "name": "IntegrationSandbox",
+  "name": "PAM Integration Template",
   "status": "prototype",
-  "description": "Sandbox for testing workflow and scripting",
-  "pamRegDLL": "IntegrationSandbox.dll"
+  "description": "This project is meant to be a template to quickly build a basic integration product build. Currently in dev, a work in progress,",
+  "pamRegDLL": "complete contents",
+  "about": {
+    "pam": {
+      "providerType": "Vault PAM Provider",
+      "name": "Pam Provider Name",
+      "certStoreContainer": "Unused",
+      "kvEnginePath": "v1/secret/data",
+      "vaultToken": "Unused",
+      "vaultHost": "http://127.0.0.1:8200",
+      "providers": "hashi",
+      "secretKey": "orch-password",
+      "secretName": "keyfactor"
+    }
+  }
 }
+
