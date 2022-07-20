@@ -17,6 +17,11 @@ Keyfactor supports the retrieval of credentials from 3rd party Priviledged Acces
 
 This is a public-facing repo with no real useable code. It is a target for testing build/workflow/action/process scripts
 
+##### Usage
+In order to use the PAM Provider, the provider's configuration must be set in the Keyfactor Platform. In the settings menu (upper right cog) you can select the ___Priviledged Access Management___ option to configure your provider instance.
+
+![](images/setting.png)
+
 ### Initial Configuration of PAM Provider
 In order to allow Keyfactor to use the new PAM Integration Template, the definition needs to be added to the application database.
 This is done by running the provided [add_PAMProvider.sql](./add_PAMProvider.sql) script on the Keyfactor application database, which only needs to be done one time.
@@ -26,11 +31,28 @@ If you have a hosted environment or need assistance completing this step, please
 ### Configuring Parameters
 The following are the parameter names and a description of the values needed to configure the PAM Integration Template.
 
-| Initialization parameter | Display Name | Description | Instance parameter | Display Name | Description |
-| :---: | :---: | --- | :---: | :---: | --- |
-| Host | Vault Host | The IP address or URL of the Vault instance, including any port number | Secret | KV Secret Name | The name of the secret in the Vault |
-| Token | Vault Token | The access token for the Vault | Key | KV Secret Key | The key to the key-value pair of the secret to access |
-| Path | KV Engine Path | The path to secrets in the Vault. By default this would be at 'v1/secret/data' |
+| Initialization parameter | Display Name | Description | Example | 
+| :---: | :---: | --- | :---: | 
+| Provider | Provider Type | Vault integration type | Vault PAM Provider |
+| Instance Name | Name | Friendly Name for this vault configuration | Pam Provider Name |
+| Cert Store Container | Certificate Store Container | Unused |
+| Path | KV Engine Path | The path to secrets in the Vault | By default this would be at `v1/secret/data` |
+| Token | Vault Token | The access token for the Vault | Unused |
+| Host | Vault Host | The IP address or URL of the Vault instance, including any port number | http://127.0.0.1:8200  |
+![](images/config.png)
+
+
+## PAM Server Password 
+After it is set up, you can now use your PAM Provider when configuring certificate stores. Any field that is treated as a Keyfactor secret, such as server passwords and certificate store passwords can be retrieved from your PAM Provider instead of being entered in directly as a secret.
+
+| Instance parameter | Display Name | Description | Example | 
+| :---: | :---: | --- | :---: | 
+| Server secret | Secret Source | Where to get secrets | Load From PAM Provider |
+| Server Provider | Providers | Drop-down selector for Server provider name | hashi |
+| Key | KV Secret Key | The key to the key-value pair of the secret to access | orch-password  |
+| Secret | KV Secret Name | The name of the secret in the Vault | keyfactor |
+![](images/password.png)
+
 
 ### Configuring for PAM Usage
 #### In Hashicorp Vault
@@ -59,33 +81,6 @@ The Keyfactor service and IIS Server should be restarted after making these chan
 | KeyfactorAPI | KeyfactorAPI\bin\ | KeyfactorAPI\web.config |
 | WebConsole | WebConsole\bin\ | WebConsole\web.config |
 
-##### Usage
-In order to use the PAM Provider, the provider's configuration must be set in the Keyfactor Platform. In the settings menu (upper right cog) you can select the ___Priviledged Access Management___ option to configure your provider instance.
-
-![](images/setting.png)
-
-![](images/config.png)
-## Configuration Parameers
-
-| Field | Value | 
-|-----|-----|
-|Provider Type| Vault PAM Provider |
-|Name| Pam Provider Name |
-|Certificate Store Container| Unused |
-|KV Engine Path| v1/secret/data|
-|Vault Token| Unused |
-|Vault Host| http://127.0.0.1:8200 |
-
-After it is set up, you can now use your PAM Provider when configuring certificate stores. Any field that is treated as a Keyfactor secret, such as server passwords and certificate store passwords can be retrieved from your PAM Provider instead of being entered in directly as a secret.
-
-![](images/password.png)
-## PAM Server Password 
-| Field | Value | 
-|-----|-----|
-|Secret Source| Load From PAM Provider |
-|Providers| hashi |
-|KV Secret Key| orch-password |
-|KV Secret Name| keyfactor|
 
 ---
 
