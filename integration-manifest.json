@@ -4,7 +4,7 @@
   "name": "PAM Integration Template",
   "status": "prototype",
   "description": "This project is meant to be a template to quickly build a basic integration product build. Currently in dev, a work in progress,",
-  "pamRegDLL": "complete contents",
+  "pamRegDLL": "MyFile.dll",
   "about": {
     "pam": {
       "providerType": "Vault PAM Provider",
