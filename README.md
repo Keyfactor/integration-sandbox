@@ -42,7 +42,7 @@ After adding a secret object to `kv` with a key and value, you can use the objec
 ##### Installation
 In order to setup a new PAM Provider in the Keyfactor Platform for the first time, you will need to run [the SQL Installation Script](./add_PAMProvider.sql) against your Keyfactor application database.
 
-After the installation is run, the DLLs need to be installed to the correct location for the PAM Provider to function. From the release, the complete contents should be copied to the following folder locations in the Keyfactor installation. Once the DLL has been copied to these folders, edit the corresponding config file. You will need to add a new Unity entry as follows under `<container>`, next to other `<register>` tags.
+After the installation is run, the DLLs need to be installed to the correct location for the PAM Provider to function. From the release, the MyFile.dll should be copied to the following folder locations in the Keyfactor installation. Once the DLL has been copied to these folders, edit the corresponding config file. You will need to add a new Unity entry as follows under `<container>`, next to other `<register>` tags.
 
 When enabling a PAM provider for Orchestrators only, the first line for `WebAgentServices` is the only installation needed.
 
@@ -65,10 +65,27 @@ In order to use the PAM Provider, the provider's configuration must be set in th
 ![](images/setting.png)
 
 ![](images/config.png)
+## Configuration Parameers
+
+| Field | Value | 
+|-----|-----|
+|Provider Type| Vault PAM Provider |
+|Name| Pam Provider Name |
+|Certificate Store Container| Unused |
+|KV Engine Path| v1/secret/data|
+|Vault Token| Unused |
+|Vault Host| http://127.0.0.1:8200 |
 
 After it is set up, you can now use your PAM Provider when configuring certificate stores. Any field that is treated as a Keyfactor secret, such as server passwords and certificate store passwords can be retrieved from your PAM Provider instead of being entered in directly as a secret.
 
 ![](images/password.png)
+## PAM Server Password 
+| Field | Value | 
+|-----|-----|
+|Secret Source| Load From PAM Provider |
+|Providers| hashi |
+|KV Secret Key| orch-password |
+|KV Secret Name| keyfactor|
 
 ---
 
