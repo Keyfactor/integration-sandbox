@@ -4,6 +4,7 @@
   "name": "Integration Template",
   "status": "prototype",
   "description": "This project is meant to be a template to quickly build a basic integration product build. Currently in dev, a work in progress,",
+  "link_github": false,
   "about": {
     "orchestrator": {
       "win": {

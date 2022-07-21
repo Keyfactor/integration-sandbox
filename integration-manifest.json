@@ -6,6 +6,7 @@
   "description": "This project is meant to be a template to quickly build a basic integration product build. Currently in dev, a work in progress,",
   "pamRegDLL": "MyFile.dll",
   "support_level": "kf-community",
+  "link_github": false,
   "about": {
     "pam": {
       "providerType": "Vault PAM Provider",
