@@ -15,7 +15,7 @@ Keyfactor supports the retrieval of credentials from 3rd party Priviledged Acces
 
 PAM Integration Template is open source and there is **no SLA** for this tool/library/client. Keyfactor will address issues as resources become available. Keyfactor customers may request escalation by opening up a support ticket through their Keyfactor representative.
 
-To report a problem or suggest a new feature, use the **[Issues](../../issues)** tab. If you want to contribute actual bug fixes or proposed enhancements, use the **[Pull requests](../../pulls)** tab.
+###### To report a problem or suggest a new feature, use the **[Issues](../../issues)** tab. If you want to contribute actual bug fixes or proposed enhancements, use the **[Pull requests](../../pulls)** tab.
 ___
 
 
@@ -43,11 +43,8 @@ The following are the parameter names and a description of the values needed to 
 
 | Initialization parameter | Display Name | Description | Example | 
 | :---: | :---: | --- | :---: | 
-| Provider | Provider Type | Vault integration type | Vault PAM Provider |
-| Instance Name | Name | Friendly Name for this vault configuration | Pam Provider Name |
-| Cert Store Container | Certificate Store Container | Unused |
 | Path | KV Engine Path | The path to secrets in the Vault | By default this would be at `v1/secret/data` |
-| Token | Vault Token | The access token for the Vault | Unused |
+| Token | Vault Token | The access token for the Vault | ********** |
 | Host | Vault Host | The IP address or URL of the Vault instance, including any port number | http://127.0.0.1:8200  |
 
 ![](./images/config.png)
@@ -76,12 +73,15 @@ After adding a secret object to `kv` with a key and value, you can use the objec
 ##### Installation
 In order to setup a new PAM Provider in the Keyfactor Platform for the first time, you will need to run [the SQL Installation Script](./add_PAMProvider.sql) against your Keyfactor application database.
 
-After the installation is run, the DLLs need to be installed to the correct location for the PAM Provider to function. From the release, the MyFile.dll should be copied to the following folder locations in the Keyfactor installation. Once the DLL has been copied to these folders, edit the corresponding config file. You will need to add a new Unity entry as follows under `<container>`, next to other `<register>` tags.
+After the installation is run, the DLLs need to be installed to the correct location for the PAM Provider to function. From the release, the .dll should be copied to the following folder locations in the Keyfactor installation. Once the DLL has been copied to these folders, edit the corresponding config file. You will need to add a new Unity entry as follows under `<container>`, next to other `<register>` tags.
 
 When enabling a PAM provider for Orchestrators only, the first line for `WebAgentServices` is the only installation needed.
 
 The Keyfactor service and IIS Server should be restarted after making these changes.
 
+```xml
+<register type="IPAMProvider" mapTo="Keyfactor.Extensions.Pam., " name="" />
+```
 ```xml
 <register type="IPAMProvider" mapTo="Keyfactor.Extensions.Pam.Hashicorp.VaultPAM, hashicorp-vault-pam" name="Hashicorp-Vault" />
 ```
