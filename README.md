@@ -80,7 +80,7 @@ When enabling a PAM provider for Orchestrators only, the first line for `WebAgen
 The Keyfactor service and IIS Server should be restarted after making these changes.
 
 ```xml
-<register type="IPAMProvider" mapTo="Keyfactor.Extensions.Pam.Sandbox.VaultPAM, " name="sandbox-vault-pam" />
+<register type="IPAMProvider" mapTo="Keyfactor.Extensions.Pam.Sandbox.VaultPAM, SandboxAssy" name="sandbox-vault-pam" />
 ```
 Additional registration steps here. This readme-register.md is optional
 
