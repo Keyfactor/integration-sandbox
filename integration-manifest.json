@@ -8,9 +8,9 @@
   "link_github": false,
   "about": {
     "pam": {
-      "pam.regDLL": "SandboxAssy",
-      "pam.qualifiedName": "Sandbox.VaultPAM",
-      "pam.dbName": "sandbox-vault-pam",
+      "regDLL": "SandboxAssy",
+      "qualifiedName": "Sandbox.VaultPAM",
+      "dbName": "sandbox-vault-pam",
       "providerType": "Vault PAM Provider",
       "name": "Pam Provider Name",
       "certStoreContainer": "Unused",
