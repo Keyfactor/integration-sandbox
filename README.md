@@ -73,7 +73,7 @@ After adding a secret object to `kv` with a key and value, you can use the objec
 ##### Installation
 In order to setup a new PAM Provider in the Keyfactor Platform for the first time, you will need to run [the SQL Installation Script](./add_PAMProvider.sql) against your Keyfactor application database.
 
-After the installation is run, the DLLs need to be installed to the correct location for the PAM Provider to function. From the release, the SandboxAssy.dll should be copied to the following folder locations in the Keyfactor installation. Once the DLL has been copied to these folders, edit the corresponding config file. You will need to add a new Unity entry as follows under `<container>`, next to other `<register>` tags.
+After the installation is run, the DLLs need to be installed to the correct location for the PAM Provider to function. From the release, the `SandboxAssy.dll` should be copied to the following folder locations in the Keyfactor installation. Once the DLL has been copied to these folders, edit the corresponding config file. You will need to add a new Unity entry as follows under `<container>`, next to other `<register>` tags.
 
 When enabling a PAM provider for Orchestrators only, the first line for `WebAgentServices` is the only installation needed.
 
